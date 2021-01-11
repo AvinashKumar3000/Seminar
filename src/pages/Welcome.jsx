@@ -14,13 +14,13 @@ import {
 
 
 const Welcome = (props) => {
+    const ID = props.match.url.split(":")[1]
     const [items, setitems] = useState([])
 
     const refresh = () => {
-        var doc = db.getAll().doc("items")
+        var doc = db.getRef().collection("Management").doc(ID)
        
         doc.get().then( (snap) => {
-            
             var itemsList = snap.data().ItemsList
             itemsList.forEach((ele,idx) => {
                 itemsList[idx].StartTime = ele.StartTime.toDate()
@@ -37,18 +37,18 @@ const Welcome = (props) => {
                 var va = items;
                 va.forEach((ele,i) => {
                 if(Object.keys(ele).includes("Description")){
-                    if(ele.Description == undefined)
+                    if(ele.Description === undefined)
                         ele.Description  = ""
-                    if(ele.Location == undefined)
+                    if(ele.Location === undefined)
                         ele.Location = ""
                 }
             });
             setitems(va)
             
-            var doc = db.getAll().doc("items")
+            var doc = db.getRef().collection("Management").doc(ID)
             
             doc.set({
-            ItemsList:va 
+                ItemsList:va 
             }).then( (ele) => {
                 window.alert("your data is saved successfully")
             })

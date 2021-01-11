@@ -3,10 +3,10 @@ import firebase from '../Firebase'
 
 class FirebaseService {
     constructor(){
-        this.ref = firebase.collection("Management")
+        this.ref = firebase
 
     }
-    getAll(){
+    getRef(){
         return this.ref;
     }
 }

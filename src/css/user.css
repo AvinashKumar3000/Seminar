@@ -1,0 +1,65 @@
+.app-user {
+    width: 100vw;
+    min-height: 100vh;
+    text-align: left;
+    padding: 5vh;
+    background-color: rgb(233, 233, 233)
+}
+.app-head{
+    border: 2px solid rgb(233, 233, 233);
+    border-bottom-color: black;
+    height: 5vh;
+    margin-left: -5vh;
+    margin-right: -5vh;
+    padding-left: 5vh;
+    text-transform: uppercase;
+}
+.sub-heading{
+    padding-top: 5vh;
+}
+.app-body{
+    height: 83vh;
+}
+
+.user-app-form {
+    width: 90vw;
+    padding-top: 8vh;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    padding-left: 0px;
+}
+.col{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-left: 0px;
+}
+.col > div {
+    padding-bottom: 10px;
+}
+.col-100 {
+    width: 100%;
+}
+input,textarea {
+    padding: 10px;
+    width: 95%;
+}
+textarea {
+    height: 100px;
+}
+.col-100 > div
+.submit-btn{
+    width: 100%;
+}
+.btn {
+    padding: 10px;
+    background-color: bisque;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    margin-right: 0px;
+}

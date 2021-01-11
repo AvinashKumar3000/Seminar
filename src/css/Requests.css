@@ -1,0 +1,22 @@
+.app-requests{
+    background-color: rgb(230, 230, 230);
+    text-align: left;
+    padding: 5vh;
+}
+.a-app-head {
+    height: 5vh;
+    margin-left: -5vh;
+    margin-right: -5vh;
+    padding-left: 5vh;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.app-body {
+    height: 80vh;
+}
+
+.section {
+    height: 60vh;
+    background-color: white;
+    padding: 5vh;
+}

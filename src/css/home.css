@@ -1,0 +1,48 @@
+.app-home {
+    padding: 30px;
+    text-align: left;
+    background-color: rgb(230, 230, 230);
+    min-height: 100vh;
+}
+.app-form {
+    margin: auto;
+    margin-right: 0px;
+    padding: 50px;
+    width: 500px;
+    border: 2px solid white;
+    margin-bottom: 20px;
+}
+.app-list-items {
+    font-size: larger;
+    font-family: fantasy;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    background-color: gray;
+
+}
+.app-item {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+}
+.app-item > .btn {
+    width: 120px;
+}
+.seminar-name, .count {
+    padding: 5px;
+}
+.seminar-name {
+    padding-left: 20px;
+    width: 70%;
+    margin-right: 10%;
+    background-color: black;
+    border-radius: 2px;
+}
+.count {
+    width: 20%;
+    word-spacing: 10px;
+}
+.flt-right {
+    float: right;
+}

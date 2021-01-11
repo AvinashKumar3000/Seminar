@@ -1,0 +1,17 @@
+.app-req-item {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+}
+.content{
+    width: 70%;
+    padding: 10px;
+}
+.btn {
+    width: 15%;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: rgb(34, 172, 190);
+}

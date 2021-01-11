@@ -1,0 +1,21 @@
+
+.dash-heading {
+    text-align: left;
+    text-transform: uppercase;
+    padding: 30px;
+    padding-bottom: 10px;
+    font-weight: 800;
+    font-size: x-large;
+    letter-spacing: 3px;
+}
+.page-heading {
+    font-family: fantasy;
+    letter-spacing: 6px;
+
+}
+.sub-heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    letter-spacing: 5px;
+   
+}

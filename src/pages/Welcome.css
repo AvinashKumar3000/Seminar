@@ -10,3 +10,13 @@
     margin: 30px;
     margin-top: 0px;
 }
+.welcome-heading{
+    margin-left: -40vw;
+    margin-top: -4vw;
+    padding-bottom: 3vw;
+    font-family: monospace;
+    font-size: xx-large;
+    color: rgb(228, 0, 57);
+    letter-spacing: 5px;
+    font-weight: 800;
+}

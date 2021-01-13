@@ -1,7 +1,7 @@
 .app-requests{
-    background-color: rgb(230, 230, 230);
     text-align: left;
     padding: 5vh;
+    min-height: 100vh;
 }
 .a-app-head {
     height: 5vh;
@@ -16,7 +16,15 @@
 }
 
 .section {
-    height: 60vh;
-    background-color: white;
+    min-height: 60vh;
+    background-color: rgb(165, 165, 165);
     padding: 5vh;
+}
+
+.bg-green {
+    background-color: rgba(0, 150, 0, 0.596);
+}
+
+.bg-red {
+    background-color: rgba(151, 0, 0, 0.596);
 }

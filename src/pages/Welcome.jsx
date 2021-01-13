@@ -14,13 +14,14 @@ import {
 
 
 const Welcome = (props) => {
-    const ID = props.match.url.split(":")[1]
+    const ID = props.match.params.id
     const [items, setitems] = useState([])
 
     const refresh = () => {
         var doc = db.getRef().collection("Management").doc(ID)
-       
+        
         doc.get().then( (snap) => {
+            console.log(snap.data())
             var itemsList = snap.data().ItemsList
             itemsList.forEach((ele,idx) => {
                 itemsList[idx].StartTime = ele.StartTime.toDate()
@@ -59,7 +60,7 @@ const Welcome = (props) => {
 
     const reset = () => {
         if(window.confirm("Are you sure you want to reset all data.")){
-            var doc = db.getAll().doc("items")
+            var doc = db.getRef().collection("Management").doc(ID)
             doc.set({
                 ItemsList:[]
             }).then( (ele) => {
@@ -71,11 +72,12 @@ const Welcome = (props) => {
 
     return (
         <div className="main-section">
+            
             <div className="header">
                 <Button variant="success" className="btn" as="input" type="button" value="SAVE" onClick={ () => {save()}} />
                 <Button className="btn" as="input" type="button" value="REFRESH" onClick={ () => {refresh()}} />
                 <Button variant="danger" className="btn" as="input" type="button" value="RESET" onClick={ () => {reset()}} />
-                
+                <h5 class="welcome-heading">{ ID }</h5>
             </div>
             <div className="Calender">
                 <ScheduleComponent 

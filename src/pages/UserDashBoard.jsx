@@ -218,30 +218,33 @@ const UserDashBoard = (props) => {
                     <h1>User authentication page</h1>
                     <p>Every user must signin with google inorder to submit your seminar booking.</p>
                 </div>
+                
                 <div className="container col"
                     style={{
                         marginTop:"100px"
                     }}
                 >
-                    <img src="https://www.google.co.in/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
-                    alt="google pic"
-                    style={
-                        {
-                        height:"100px",
-                        width:"250px",
-                        margin:"auto",
-                    }
-                        
-                    }
+
+                <img src="https://www.google.co.in/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt="google pic"
+                style={
+                    {
+                    height:"100px",
+                    width:"250px",
+                    margin:"auto",
+                }
                     
-                    />
-                    <div class="row">
-                        <div class="col-md-12" >
-                            <div class="btn btn-lg btn-google btn-block btn-outline"  onClick={(e)=>{e.preventDefault();openAuth(e)}}>
-                            <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="google logo" style={{marginRight:"20px"}}/> Sign in with Google
-                        </div> 
-                        </div>
+                }
+                
+                />
+
+                <div class="row">
+                    <div class="col-md-12" style={{width:"500px"}} >
+                        <div class="btn btn-lg btn-google btn-block btn-outline" style={{width:"100%"}}  onClick={(e)=>{e.preventDefault();openAuth(e)}}>
+                        <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="google logo" style={{marginRight:"20px"}}/> Sign in with Google
                     </div> 
+                    </div>
+                </div> 
                 </div>
             </div>
         )

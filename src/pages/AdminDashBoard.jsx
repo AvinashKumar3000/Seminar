@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {Navbar,Nav} from 'react-bootstrap'
+import {Navbar,Nav,Form} from 'react-bootstrap'
 
 import Requests from '../pages/Requests'
 import Home from "../pages/Home";
@@ -12,7 +12,7 @@ import '../css/AdminDash.css'
 
 
 
-const AdminDash = () => {
+const AdminDash = (props) => {
     const [st,setst] = useState(1)
 
     const defaultColor = {color:"grey"}
@@ -51,7 +51,15 @@ const AdminDash = () => {
                     <Nav.Link onClick={ (e) => { setst(3) }} ><p style={page3style}>ACCEPTS</p></Nav.Link>
                     <Nav.Link onClick={ (e) => { setst(4) }} ><p style={page4style}>REJECTS</p></Nav.Link>
                 </Nav>
+                <Form inline>
+                    <button className="btn btn-primary" style={{width:"100px"}}
+                        onClick={(e)=>{
+                            props.changeAuth("false")
+                        }}
+                    >Log out</button>
+                </Form>
             </Navbar>
+            
             {result}
         </div>
     )

@@ -20,15 +20,6 @@ const UserDashBoard = (props) => {
     const [dept, setdept] = useState("CSE")
     const [desc, setDesc] = useState("")
 
-    const emailValidation = (txt) => {
-        if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(txt))
-        {
-            return (true)
-        }
-        alert("You have entered an invalid email address!")
-        return (false)
-    }
-
     const getSeminarList = async () => {
         var ref = await db.getRef().collection("Management")
         ref.get().then( (snap) => {
@@ -41,42 +32,73 @@ const UserDashBoard = (props) => {
     }
 
     getSeminarList()
-    const validate = () => {
-        if(email === "" || topic === "" || desc === ""){
-            return false;
-        }
-        return true;
-    }
-    
+ 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // handle the submit action
-        if(emailValidation(email) === false){
-            return false
-        }
-        if(validate()){
-            var doc = db.getRef().collection("Requests")
-            doc.add({
-                from:from,
-                to:to,
-                topic:topic,
-                email:email,
-                desc:desc,
-                dept:dept,
-                seminar:seminar
-            }).then(
-                window.alert("Your have submitted successfully")
-            ).catch(function(error) {
-                window.alert("There is a promblem with the network")
-            });
-            setemail("")
-            setTopic("")
-            setDesc("")
+        if(email !== "" && topic !== "" && desc !== ""){
+            // check for the time mis match
+            var status = true
+            var doc = db.getRef().collection("AcceptRequest")
+            doc.get().then( (d) => {
+                
+                d.forEach( (ele) => {
+                    let data = ele.data()
+                    let f = parseInt( Number(data.from.toDate()))
+                    let t = parseInt( Number(data.to.toDate()))
+                    let ff = parseInt( Number(from))
+                    let ft = parseInt( Number(to))
+                    if(( ff >= f && ff <= t ) || ( ft >= f && ft <= t )){
+                        status = false
+                        window.alert("the time is already allotted")
+                    }
+                })
+                
+            }).then( () => {
+                if(status){
+                    var reqRef = db.getRef().collection("Requests")
+                    reqRef.get().then( (d) => {
+                        d.forEach( (ele) => {
+                            let data = ele.data()
+                            let f = parseInt( Number(data.from.toDate()))
+                            let t = parseInt( Number(data.to.toDate()))
+                            let ff = parseInt( Number(from))
+                            let ft = parseInt( Number(to))
+                            if(( ff >= f && ff <= t ) || ( ft >= f && ft <= t )){
+                                status = false
+                                window.alert("the time is already Requested")
+                            }
+                        })
+                        
+                    }).then( ()=> {
+                        if(status){
+                            var docRef = db.getRef().collection("Requests")
+                            docRef.add({
+                                from:from,
+                                to:to,
+                                topic:topic,
+                                email:email,
+                                desc:desc,
+                                dept:dept,
+                                seminar:seminar
+                            }).then(
+                                window.alert("Your have submitted successfully")
+                            ).catch(function(error) {
+                                window.alert("There is a promblem with the network")
+                            });
+                            setTopic("")
+                            setDesc("")
+                        }
+                    }) 
+                }
+                
+            })   
         }else{
             window.alert("the input fields cannot be empty")
         }
         return true;
     }
+    
 
     const openAuth = async(e) => {
             e.preventDefault()
